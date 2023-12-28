@@ -1,0 +1,41 @@
+id: com.fxyoge.RimSort
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+command: RimSort.bin
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --share=network
+  - --device=dri
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+modules:
+  - name: rimsort
+    buildsystem: simple
+    build-commands:
+      - mkdir -p $FLATPAK_DEST/bin
+      - cp -r * $FLATPAK_DEST/bin
+      - install -Dm644 data/AppIcon_a.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png
+    sources:
+      - type: archive
+        url: https://github.com/RimSort/RimSort/releases/download/alpha-v1.0.6.2-hf/RimSort-Alpha-v1.0.6.2-hf_Linux_x86_64.zip
+        sha256: 519fabd93745a66e7adef83ca4531554541ddf34641612e36da79e47e152671f
+      - type: file
+        path: update.sh
+  - name: git
+    make-args:
+      - INSTALL_SYMLINKS=1
+    make-install-args:
+      - INSTALL_SYMLINKS=1
+    cleanup:
+      - "/lib/pkgconfig"
+      - "/man"
+    sources:
+      - type: archive
+        url: https://www.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz
+        sha256: 5446603e73d911781d259e565750dcd277a42836c8e392cac91cf137aa9b76ec
+        x-checker-data:
+          type: anitya
+          project-id: 5350
+          stable-only: true
+          url-template: https://www.kernel.org/pub/software/scm/git/git-$version.tar.xz
