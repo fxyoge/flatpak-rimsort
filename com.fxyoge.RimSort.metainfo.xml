@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.fxyoge.RimSort</id>
+  
+  <name>RimSort</name>
+  <summary>Mod manager for Rimworld</summary>
+  
+  <metadata_license>MIT</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  
+  <description>
+    <p>
+      Unofficial flatpak for [RimSort](https://github.com/RimSort/RimSort).
+    </p>
+    <p>
+      <em>Common permission overrides</em>
+    </p>
+    <ul>
+      <li>
+        If using the normal version of Steam: <code>flatpak override --user com.fxyoge.RimSort --filesystem &quot;~/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config&quot; --filesystem &quot;~/.steam/steam/steamapps/common/RimWorld&quot; --filesystem &quot;~/.steam/steam/steamapps/workshop/content/294100&quot;</code>
+      </li>
+      <li>
+        ...or, if using flatpak Steam: <code>flatpak override --user com.fxyoge.RimSort --filesystem &quot;~/.var/app/com.valvesoftware.Steam/config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config&quot; --filesystem &quot;~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/common/RimWorld&quot; --filesystem &quot;~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/workshop/content/294100&quot;</code>
+      </li>
+      <li>
+        ...and any additional libraries you have: <code>flatpak override --user com.fxyoge.RimSort --filesystem &quot;/path/to/your/steam/library/SteamLibrary/steamapps/common/RimWorld&quot; --filesystem &quot;/path/to/your/steam/library/SteamLibrary/steamapps/workshop/content/294100&quot;</code>
+      </li>
+    </ul>
+    <p>
+      You could instead give access to e.g. all of <code>~/.steam/steam/steamapps</code>, if you&apos;re so inclined. I prefer to only give it what it needs and recommend doing the same.
+    </p>
+    <p>
+      <em>Known issues</em>
+    </p>
+    <ul>
+      <li>
+        The &quot;Browse Workshop&quot; window might not work as expected because RimSort doesn&apos;t have access to Steam, and therefore is &quot;Unable to initialize Steamworks API due to exception: SteamNotRunningException&quot;. Probably just need to set up the right permissions, but I don&apos;t use that feature so I haven&apos;t tried fixing it.
+      </li>
+      <li>
+        Running the game from RimSort breaks for the same reason - it doesn&apos;t have access to Steam. 
+      </li>
+      <li>
+        RimSort will crash on some machines (e.g. mine, lol) when clicking any button that opens a file browser dialog such as the four game, config, etc. folder selectors, or the git repo configs. This issue appears to happen in the normal version of the app, so I think it&apos;s just a plain ol&apos; boring bug. Workaround: directly modify the config at <code>~/.var/app/com.fxyoge.RimSort/data/RimSort/settings.json</code>.
+      </li>
+    </ul>
+  </description>
+  
+  <launchable type="desktop-id">com.fxyoge.RimSort.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/RimSort/RimSort/main/docs/rimsort_preview.png</image>
+    </screenshot>
+  </screenshots>
+</component>

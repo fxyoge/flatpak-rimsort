@@ -1,6 +1,6 @@
 id: com.fxyoge.RimSort
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: RimSort.bin
 finish-args:
@@ -15,13 +15,20 @@ modules:
     build-commands:
       - mkdir -p $FLATPAK_DEST/bin
       - cp -r * $FLATPAK_DEST/bin
-      - install -Dm644 data/AppIcon_a.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png
+    post-install:
+      - install -D com.fxyoge.RimSort.desktop -t /app/share/applications/
+      - install -D com.fxyoge.RimSort.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 data/AppIcon_a.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
     sources:
       - type: archive
         url: https://github.com/RimSort/RimSort/releases/download/alpha-v1.0.6.2-hf/RimSort-Alpha-v1.0.6.2-hf_Linux_x86_64.zip
         sha256: 519fabd93745a66e7adef83ca4531554541ddf34641612e36da79e47e152671f
       - type: file
         path: update.sh
+      - type: file
+        path: com.fxyoge.RimSort.desktop
+      - type: file
+        path: com.fxyoge.RimSort.metainfo.xml
   - name: git
     make-args:
       - INSTALL_SYMLINKS=1

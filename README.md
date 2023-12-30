@@ -1,6 +1,6 @@
 # com.fxyoge.RimSort flatpak
 
-Unofficial flatpak for [https://github.com/RimSort/RimSort](RimSort).
+Unofficial flatpak for [RimSort](https://github.com/RimSort/RimSort).
 
 ## Usage
 
