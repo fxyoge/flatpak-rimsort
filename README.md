@@ -8,18 +8,21 @@ Unofficial flatpak for [https://github.com/RimSort/RimSort](RimSort).
 flatpak install --user flathub com.fxyoge.RimSort
 
 # If using the normal version of Steam:
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config"
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.steam/steam/steamapps/common/RimWorld"
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.steam/steam/steamapps/workshop/content/294100"
+flatpak override --user com.fxyoge.RimSort \
+    --filesystem "~/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config" \
+    --filesystem "~/.steam/steam/steamapps/common/RimWorld" \
+    --filesystem "~/.steam/steam/steamapps/workshop/content/294100"
 
 # ...or, if using flatpak Steam:
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.var/app/com.valvesoftware.Steam/config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config"
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/common/RimWorld"
-flatpak override --user com.fxyoge.RimSort --filesystem "~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/workshop/content/294100"
+flatpak override --user com.fxyoge.RimSort \
+    --filesystem "~/.var/app/com.valvesoftware.Steam/config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config" \
+    --filesystem "~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/common/RimWorld" \
+    --filesystem "~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/workshop/content/294100"
 
 # ...and any additional libraries you have:
-flatpak override --user com.fxyoge.RimSort --filesystem "/path/to/your/steam/library/SteamLibrary/steamapps/common/RimWorld"
-flatpak override --user com.fxyoge.RimSort --filesystem "/path/to/your/steam/library/SteamLibrary/steamapps/workshop/content/294100"
+flatpak override --user com.fxyoge.RimSort \
+    --filesystem "/path/to/your/steam/library/SteamLibrary/steamapps/common/RimWorld" \
+    --filesystem "/path/to/your/steam/library/SteamLibrary/steamapps/workshop/content/294100"
 
 # You could instead give access to e.g. all of ~/.steam/steam/steamapps, if you're so inclined. I prefer to only give it what it needs and recommend doing the same.
 ```
